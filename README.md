@@ -3,9 +3,6 @@
 > [!IMPORTANT]
 > Created and tested with **PowerShell 5.1**
 
-> [!NOTE]
-> **Scripts** will also be added to create an actual toolkit.
-
 INDEX
 
 1. **GENERAL (PowerShell)**
@@ -74,6 +71,8 @@ INDEX
      - [Show users connected to the machine](#show-users-connected-to-the-machine)
    - winget
      - [List applications with an upgrade available](#list-applications-with-an-upgrade-available)
+
+<br><br><br>
 
 ## GENERAL (PowerShell)
 
