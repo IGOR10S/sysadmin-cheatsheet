@@ -67,6 +67,8 @@ INDEX
    - netstat
      - [Show active connections and processes](#show-active-connections-and-processes)
      - [Show keyword-filtered active connections and processes](#show-keyword-filtered-active-connections-and-processes)
+   - tasklist
+     - [Show keyword-filtered active processes](#show-keyword-filtered-active-processes)
    - query
      - [Show users connected to the machine](#show-users-connected-to-the-machine)
    - winget
@@ -340,6 +342,14 @@ netstat -abno
 
 ```bash
 netstat -abno | findstr /I "<KEYWORD>"
+```
+
+## tasklist
+
+#### Show keyword-filtered active processes
+
+```bash
+tasklist | findstr /I "<KEYWORD>"
 ```
 
 ## query
