@@ -24,6 +24,9 @@ INDEX
      - [Show SMB files opened by users](#show-smb-files-opened-by-users)
    - Remove-Item
      - [Delete PSReadLine command history file](#delete-psreadline-command-history-file)
+   - Get-CimInstance
+     - [Retrieving BIOS serial number (output as object)](#retrieving-bios-serial-number-output-as-object)
+     - [Retrieving BIOS serial number (output as a simple value)](#retrieving-bios-serial-number-output-as-a-simple-value)
 
 2. **ADDS (PowerShell)**
    - Get-ADUser
@@ -156,6 +159,20 @@ Get-SmbOpenFile | Select-Object ClientComputerName, ClientUserName, Path, Sessio
 
 ```powershell
 Remove-Item (Get-PSReadLineOption).HistorySavePath
+```
+
+## Get-CimInstance
+
+#### Retrieving BIOS serial number (output as object)
+
+```powershell
+Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -Property SerialNumber
+```
+
+#### Retrieving BIOS serial number (output as a simple value)
+
+```powershell
+Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -ExpandProperty SerialNumber
 ```
 
 <br><br><br>
