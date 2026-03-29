@@ -182,19 +182,19 @@ Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -Ex
 (Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber).SerialNumber
 ```
 
-#### Enumerate user accounts with their SID and account type (local/domain)
+#### Enumerate user accounts with their SID and account type
 
 ```powershell
 Get-CimInstance -ClassName Win32_UserAccount -Property Name, SID, LocalAccount | Select-Object Name, SID, Domain, LocalAccount
 ```
 
-#### Enumerate user accounts with their status (enablement, lockout, and operational status)
+#### Enumerate user accounts with their status
 
 ```powershell
 Get-CimInstance -ClassName Win32_UserAccount -Property Name, SID, Disabled, Lockout, Status | Select-Object Name, SID, Domain, Disabled, Lockout, Status
 ```
 
-#### Enumerate user accounts with their password properties (expiration, editability, and mandatory)
+#### Enumerate user accounts with their password properties
 
 ```powershell
 Get-CimInstance -ClassName Win32_UserAccount -Property Name, SID, PasswordExpires, PasswordChangeable, PasswordRequired | Select-Object Name, SID, Domain, PasswordExpires, PasswordChangeable, PasswordRequired
