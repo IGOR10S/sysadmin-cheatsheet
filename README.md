@@ -166,7 +166,7 @@ Remove-Item (Get-PSReadLineOption).HistorySavePath
 #### Retrieving BIOS serial number (output as object)
 
 ```powershell
-Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -Property SerialNumber
+Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object SerialNumber
 ```
 
 #### Retrieving BIOS serial number (output as a simple value)
