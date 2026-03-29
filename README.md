@@ -175,6 +175,10 @@ Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -Pr
 Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -ExpandProperty SerialNumber
 ```
 
+```powershell
+(Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber).SerialNumber
+```
+
 <br><br><br>
 
 ## ADDS (PowerShell)
