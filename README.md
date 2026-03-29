@@ -25,8 +25,11 @@ INDEX
    - Remove-Item
      - [Delete PSReadLine command history file](#delete-psreadline-command-history-file)
    - Get-CimInstance
-     - [Retrieving BIOS serial number (output as object)](#retrieving-bios-serial-number-output-as-object)
-     - [Retrieving BIOS serial number (output as a simple value)](#retrieving-bios-serial-number-output-as-a-simple-value)
+     - [Retrieve the BIOS serial number (output as object)](#retrieve-the-bios-serial-number-output-as-object)
+     - [Retrieve the BIOS serial number (output as a simple value)](#retrieve-the-bios-serial-number-output-as-a-simple-value)
+     - [Enumerate user accounts with their SID and account type](#enumerate-user-accounts-with-their-sid-and-account-type)
+     - [Enumerate user accounts with their status](#enumerate-user-accounts-with-their-status)
+     - [Enumerate user accounts with their password properties](#enumerate-user-accounts-with-their-password-properties)
 
 2. **ADDS (PowerShell)**
    - Get-ADUser
@@ -163,13 +166,13 @@ Remove-Item (Get-PSReadLineOption).HistorySavePath
 
 ## Get-CimInstance
 
-#### Retrieving BIOS serial number (output as object)
+#### Retrieve the BIOS serial number (output as object)
 
 ```powershell
 Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object SerialNumber
 ```
 
-#### Retrieving BIOS serial number (output as a simple value)
+#### Retrieve the BIOS serial number (output as a simple value)
 
 ```powershell
 Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -ExpandProperty SerialNumber
@@ -177,6 +180,24 @@ Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber | Select-Object -Ex
 
 ```powershell
 (Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber).SerialNumber
+```
+
+#### Enumerate user accounts with their SID and account type (local/domain)
+
+```powershell
+Get-CimInstance -ClassName Win32_UserAccount -Property Name, SID, LocalAccount | Select-Object Name, SID, Domain, LocalAccount
+```
+
+#### Enumerate user accounts with their status (enablement, lockout, and operational status)
+
+```powershell
+Get-CimInstance -ClassName Win32_UserAccount -Property Name, SID, Disabled, Lockout, Status | Select-Object Name, SID, Domain, Disabled, Lockout, Status
+```
+
+#### Enumerate user accounts with their password properties (expiration, editability, and mandatory)
+
+```powershell
+Get-CimInstance -ClassName Win32_UserAccount -Property Name, SID, PasswordExpires, PasswordChangeable, PasswordRequired | Select-Object Name, SID, Domain, PasswordExpires, PasswordChangeable, PasswordRequired
 ```
 
 <br><br><br>
