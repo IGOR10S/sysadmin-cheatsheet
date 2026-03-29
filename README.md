@@ -339,7 +339,7 @@ netstat -abno
 #### Show keyword-filtered active connections and processes
 
 ```bash
-netstat -abno | findstr -i "<KEYWORD>"
+netstat -abno | findstr /I "<KEYWORD>"
 ```
 
 ## query
